@@ -1,61 +1,70 @@
-# DAEN 690 Project Repository: Improving the Performance of ClimateGPT
+# Getting Started with Create React App
 
-## Overview
-This repository contains all publicly available data and code artifacts generated for the DAEN 690 project. The project focuses on improving the performance of ClimateGPT, a foundational AI model designed to address climate change challenges.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Purpose
-This repository was created to document the work done during the semester. It is designed for future project teams to access and build upon. No proprietary or sensitive data is included.
+## Available Scripts
 
-## Project Team
-### Roles and Members
-- Product Owner: Atluri Divya ([datluri2@gmu.edu](mailto:datluri2@gmu.edu))
-- Scrum Master: Gabbeta Sai Sahith ([sgabbeta@gmu.edu](mailto:sgabbeta@gmu.edu))
-- Developers:
-  - Komatireddy Akshitha ([akomati@gmu.edu](mailto:akomati@gmu.edu))
-  - Menat Nimisha Ramnikbhai ([nmenat@gmu.edu](mailto:nmenat@gmu.edu))
-  - Polina Sai Avinash ([spolina2@gmu.edu](mailto:spolina2@gmu.edu))
-  - Thatthari Bhuvan Sai ([bthattha@gmu.edu](mailto:bthattha@gmu.edu))
+In the project directory, you can run:
 
-### Customer/Project
-- Customer: Daniel Erasmus
-- Project Title: Improving the Performance of ClimateGPT
+### `npm start`
 
-## Project Description
-The project aims to enhance ClimateGPT, the world's first foundational model on climate change, by:
-- Developing an AI classifier to parse user queries.
-- Creating a framework for structured queries to integrate with public climate databases.
-- Formatting responses into ClimateGPT-specific prompts.
-- Supporting rich, multi-modal, and referenced user outputs.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-ClimateGPT enables decision-making for climate resilience by analyzing vast datasets, offering scenario testing, and providing sustainability scores.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Repository Structure
-- data/: Contains non-sensitive datasets used in the project.
-- src/: Includes code scripts and notebooks.
-- docs/: Documentation related to the project.
-- results/: Outputs and results generated during the project.
+### `npm test`
 
-## Technologies Used
-- Python (Pandas, NumPy, SQLAlchemy)
-- Jupyter Notebook
-- AWS (for cloud-based data integration and storage)
-- SQL for database querying
-- Git for version control
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Instructions for Use
+### `npm run build`
 
-1. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/avinashpolina/Storm-Chasers---DAEN-690.git
-  
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Acknowledgments
-Special thanks to Erasmus.AI for providing resources and guidance for this project.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-## Contact
-For questions or feedback, please contact any team member listed above.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
