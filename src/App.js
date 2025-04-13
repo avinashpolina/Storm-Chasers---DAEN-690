@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 function App() {
+  const [query, setQuery] = useState("");
+  const [response, setResponse] = useState("");
+
+  const handleAsk = async () => {
+    try {
+      const res = await fetch("https://your-ngrok-url.ngrok.io/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question: query }),
+      });
+      const data = await res.json();
+      setResponse(data.answer || JSON.stringify(data));
+    } catch (error) {
+      console.error("Error:", error);
+      setResponse("⚠️ Failed to connect to backend.");
+    }
+  };
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <img
@@ -34,8 +54,10 @@ function App() {
             type="text"
             placeholder="Type a climate related question to start"
             className="flex-grow p-4 text-gray-800 outline-none"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="bg-green-500 text-white px-6 py-3">
+          <button className="bg-green-500 text-white px-6 py-3" onClick={handleAsk}>
             ▶️
           </button>
         </div>
@@ -46,6 +68,13 @@ function App() {
         <p className="text-xs mt-2 text-gray-400 max-w-md">
           ClimateGPT can make mistakes. Always make sure to double-check important information in its answers. <a className="underline" href="#">Learn more</a>
         </p>
+
+        {response && (
+          <div className="bg-white text-black rounded-lg mt-6 p-4 max-w-xl shadow-lg">
+            <p className="text-md font-medium">Response:</p>
+            <p>{response}</p>
+          </div>
+        )}
 
         <div className="absolute bottom-10 text-white text-sm flex flex-col items-center">
           <span className="animate-bounce text-xl">⌄</span>
