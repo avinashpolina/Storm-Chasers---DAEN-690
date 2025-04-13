@@ -16,7 +16,7 @@ function App() {
         <div className="absolute top-6 left-6 flex items-center space-x-2 text-black font-bold text-xl">
           <span>ClimateGPT 2.0</span>
           <span className="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">BETA</span>
-          <span className="text-sm font-light ml-2">by Erasmus.AI</span>
+          <span className="text-sm font-light ml-2">by StormChasers</span>
         </div>
 
         <div className="absolute top-6 right-6 flex items-center space-x-6 text-black">
