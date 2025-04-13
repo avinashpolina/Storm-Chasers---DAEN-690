@@ -7,8 +7,7 @@ function App() {
 
   const handleAsk = async () => {
     try {
-      const res = await fetch("https://325f-2600-8806-290d-9800-e9f5-a3cb-432-1e4.ngrok.io/query", {
-
+      const res = await fetch("https://a7f6-2600-8806-290d-9800-e9f5-a3cb-432-1e4.ngrok.io/query", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
