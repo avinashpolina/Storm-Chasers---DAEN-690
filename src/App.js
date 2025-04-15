@@ -13,7 +13,7 @@ function App() {
     setResponse("");
 
     try {
-      const res = await fetch("http://localhost:5050/query", {
+      const res = await fetch("https://climate-backend.onrender.com/query", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -26,7 +26,7 @@ function App() {
       setResponse(llmReply);
     } catch (error) {
       console.error("Error:", error);
-      setResponse("⚠️ Failed to connect to your Flask backend.");
+      setResponse("⚠️ Failed to connect to ClimateGPT API.");
     } finally {
       setLoading(false);
     }
@@ -107,4 +107,3 @@ function App() {
 }
 
 export default App;
-
