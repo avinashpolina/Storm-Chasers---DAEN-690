@@ -92,7 +92,16 @@ function App() {
         {response && (
           <div className="bg-white text-black rounded-lg mt-6 p-4 max-w-xl shadow-lg">
             <p className="text-md font-medium">Response:</p>
-            <p className="mt-1 whitespace-pre-line">{response}</p>
+            <p className="mt-1 whitespace-pre-line">
+  {(() => {
+    try {
+      const parsed = JSON.parse(response);
+      return parsed.response || JSON.stringify(parsed, null, 2);
+    } catch {
+      return response;
+    }
+  })()}
+</p>
           </div>
         )}
 
