@@ -13,7 +13,7 @@ function App() {
     setResponse("");
 
     try {
-      const res = await fetch("http://localhost:5000/query", {
+      const res = await fetch("http://localhost:5050/query", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
