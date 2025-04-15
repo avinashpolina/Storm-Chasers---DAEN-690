@@ -7,30 +7,30 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleAsk = async () => {
-    if (!query.trim()) return;
+  if (!query.trim()) return;
 
-    setLoading(true);
-    setResponse("");
+  setLoading(true);
+  setResponse("");
 
-    try {
-      const res = await fetch("https://climate-backend.onrender.com/query", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ question: query }),
-      });
+  try {
+    const res = await fetch("https://4424-66-7-153-34.ngrok-free.app/query", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ user_input: query }),
+    });
 
-      const data = await res.json();
-      const llmReply = data.choices?.[0]?.message?.content || "No response from ClimateGPT.";
-      setResponse(llmReply);
-    } catch (error) {
-      console.error("Error:", error);
-      setResponse("⚠️ Failed to connect to ClimateGPT API.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    const data = await res.json();
+    setResponse(JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error("Error:", error);
+    setResponse("⚠️ Failed to connect to MCP.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
