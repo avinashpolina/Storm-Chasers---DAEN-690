@@ -13,19 +13,27 @@ function App() {
     setResponse("");
 
     try {
-      const res = await fetch("https://e4af-2600-8806-290d-9800-e9f5-a3cb-432-1e4.ngrok.io/query", {
+      const res = await fetch("https://erasmus.ai/models/climategpt_8b_latest/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": "Basic " + btoa("ai:4climate") // Basic Auth
         },
-        body: JSON.stringify({ question: query }),
+        body: JSON.stringify({
+          model: "/cache/climategpt_8b_latest",
+          messages: [
+            { role: "system", content: "You are a helpful assistant." },
+            { role: "user", content: query }
+          ]
+        }),
       });
 
       const data = await res.json();
-      setResponse(data.answer || JSON.stringify(data));
+      const llmReply = data.choices?.[0]?.message?.content || "No response from ClimateGPT.";
+      setResponse(llmReply);
     } catch (error) {
       console.error("Error:", error);
-      setResponse("⚠️ Failed to connect to backend.");
+      setResponse("⚠️ Failed to connect to ClimateGPT API.");
     } finally {
       setLoading(false);
     }
@@ -40,10 +48,8 @@ function App() {
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
 
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-40 z-10" />
 
-      {/* Main Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-white text-center">
         {/* Header */}
         <div className="absolute top-6 left-6 flex items-center space-x-2 text-black font-bold text-xl">
@@ -93,7 +99,7 @@ function App() {
         {response && (
           <div className="bg-white text-black rounded-lg mt-6 p-4 max-w-xl shadow-lg">
             <p className="text-md font-medium">Response:</p>
-            <p className="mt-1">{response}</p>
+            <p className="mt-1 whitespace-pre-line">{response}</p>
           </div>
         )}
 
