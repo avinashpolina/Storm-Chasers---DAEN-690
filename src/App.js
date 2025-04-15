@@ -13,19 +13,12 @@ function App() {
     setResponse("");
 
     try {
-      const res = await fetch("https://erasmus.ai/models/climategpt_8b_latest/v1/chat/completions", {
+      const res = await fetch("http://localhost:5000/query", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Basic " + btoa("ai:4climate") // Basic Auth
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          model: "/cache/climategpt_8b_latest",
-          messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            { role: "user", content: query }
-          ]
-        }),
+        body: JSON.stringify({ question: query }),
       });
 
       const data = await res.json();
@@ -33,7 +26,7 @@ function App() {
       setResponse(llmReply);
     } catch (error) {
       console.error("Error:", error);
-      setResponse("⚠️ Failed to connect to ClimateGPT API.");
+      setResponse("⚠️ Failed to connect to your Flask backend.");
     } finally {
       setLoading(false);
     }
@@ -114,3 +107,4 @@ function App() {
 }
 
 export default App;
+
